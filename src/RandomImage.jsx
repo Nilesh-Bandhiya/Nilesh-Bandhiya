@@ -33,7 +33,7 @@ class RandomImage extends Component {
 
   render() {
     const { imageUrl } = this.state;
-    const shareUrl = "https://randomshare.onrender.com";
+    const shareUrl = "https://random-image-share.vercel.app/";
     const shareTitle = "Check out this random image!";
 
     return (
