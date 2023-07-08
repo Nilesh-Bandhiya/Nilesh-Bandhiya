@@ -33,38 +33,47 @@ class RandomImage extends Component {
 
   render() {
     const { imageUrl } = this.state;
+    const shareUrl = "https://randomshare.onrender.com";
     const shareTitle = "Check out this random image!";
 
     return (
-      <div className="random-image-container">
+      <>
         <Helmet>
+          {/* Facebook */}
+          <meta property="og:url" content={shareUrl} />
+          <meta property="og:title" content={shareTitle} />
           <meta property="og:image" content={imageUrl} />
-          <meta property="og:title" content="Check out this random image!" />
+
+          {/* Twitter */}
           <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content={shareTitle} />
           <meta name="twitter:image" content={imageUrl} />
-          <meta name="twitter:title" content="Check out this random image!" />
-          <meta property="og:image" content={imageUrl} />
-          <meta property="og:title" content="Check out this random image!" />
-          <meta
-            property="og:description"
-            content="Description of the shared content."
-          />
+
+          {/* WhatsApp */}
+          <meta property="og:type" content="website" />
+          <meta property="og:image:alt" content={shareTitle} />
+          <meta property="og:image:type" content="image/jpeg" />
         </Helmet>
-        <div className="image-wrapper">
-          <img className="random-image" src={imageUrl} alt="Random" />
+        <div className="random-image-container">
+          <div className="image-wrapper">
+            <img className="random-image" src={imageUrl} alt="Random" />
+          </div>
+          <div className="button-container">
+            <FacebookShareButton url={shareUrl} quote={shareTitle}>
+              <FaFacebook className="social-icon" />
+            </FacebookShareButton>
+            <TwitterShareButton url={shareUrl} title={shareTitle}>
+              <FaTwitter className="social-icon" />
+            </TwitterShareButton>
+            <WhatsappShareButton
+              url={shareUrl}
+              title={shareTitle}
+            >
+              <FaWhatsapp className="social-icon" />
+            </WhatsappShareButton>
+          </div>
         </div>
-        <div className="button-container">
-          <FacebookShareButton url={imageUrl} quote={shareTitle}>
-            <FaFacebook className="social-icon" />
-          </FacebookShareButton>
-          <TwitterShareButton url={imageUrl} title={shareTitle}>
-            <FaTwitter className="social-icon" />
-          </TwitterShareButton>
-          <WhatsappShareButton url={imageUrl} title={shareTitle} data-action="share/whatsapp/share">
-            <FaWhatsapp className="social-icon" />
-          </WhatsappShareButton>
-        </div>
-      </div>
+      </>
     );
   }
 }
