@@ -1,3 +1,17 @@
+# To run this application first you have to install node js in your system and clone the project
+
+# start command Line by Line
+
+# `npm install`
+
+# `npm start`
+
+# Deploy URL Of this app is : https://randomshare.onrender.com/
+
+#Image Preview not shown in whatsapp because of some version issues and some another issues
+
+#You can check this documents :  https://github.com/nygardk/react-share/issues/476
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
